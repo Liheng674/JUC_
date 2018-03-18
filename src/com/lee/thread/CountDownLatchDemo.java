@@ -13,12 +13,13 @@ import com.lee.thread.enums.CountriesEnum;
  * 当计数器的值变为0时，因await方法阻塞的线程会被唤醒，继续执行。
  */
 public class CountDownLatchDemo {
+	private static final int NUMBER = 6;
 	public static void main(String[] args) {
 		rule();
 	}
 	public static void rule() {
-		CountDownLatch cd = new CountDownLatch(6);
-		for (int i = 1; i <= 6; i++) {
+		CountDownLatch cd = new CountDownLatch(NUMBER);
+		for (int i = 1; i <= NUMBER; i++) {
 			new Thread(() -> {
 				System.out.println(Thread.currentThread().getName() + "\t国灭亡");
 				// let all threads proceed
